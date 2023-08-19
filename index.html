@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bmi Calculator</title>
+ 
+  <style>
+  body{
+    background-color: rgb(204, 204, 72);
+  }
+  .bg{
+  background-image: url(https://static.vecteezy.com/system/resources/previews/002/512/050/non_2x/illustration-of-fitness-girls-performing-sports-exercises-on-a-pink-background-vector.jpg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  height: 100vh;
+  overflow: hidden;
+  }
+
+  h1{
+	color:  rgb(6, 64, 75);
+	margin-top: 3vw;
+  text-align: center;
+	font-weight: bold;
+	font-size: 4vw;
+	font-family:cursive;
+    } 
+    @media (max-width:450px){
+    h1{
+      margin-top: 10vw;
+      font-size: 7vw;
+     }
+    }  
+
+  .mainbox{
+      display: flex;
+      flex-direction:column;
+      text-align: center;
+    }
+
+    @media (max-width:450px){
+     .mainbox{
+      margin-top: 10vw;
+     }
+    }
+
+    .box1{
+      margin-left: -5vw;
+    }
+    .box2{
+    margin: auto;
+    width: 20%;
+    }
+
+     label{
+      font-size:2vw;
+      font-weight: bold;
+      padding-left: 8vw;
+    }
+    .box1-a{
+    margin-top: 3vw;
+    }
+
+    @media (max-width:475px){
+      label{
+        font-size:3vw;
+      }
+    }
+    input {
+      width: 30%;
+      height: 2vw;
+   
+    }
+    @media (max-width:475px){
+      input{
+        height: 3vw;
+       font-size: 2vw;
+      }
+    }
+
+    button {
+      width: 20%;
+      font-weight: bold;
+      font-size: 2vw;
+      background-color: lime;
+      margin-left: 10vw;
+      margin-top: 4vw;
+      color: black;
+    border-radius: 10vw;
+    }
+
+    #print {
+      color: blue;
+      background-color: yellow;
+      font-size: 3vw;
+      text-align: center; 
+      font-family: cursive;
+    }
+  @media (max-width:400px){
+  #print{
+    font-size: 4vw;
+
+  }
+  }
+  #suggestion {
+      color:rgb(78, 17, 17);
+      background-color: yellow;
+      font-size: 3vw; 
+      text-align: center;
+      font-family: cursive;
+    }
+    @media (max-width:400px){
+  #suggestion{
+    font-size: 4vw;
+  }
+  }
+
+
+  </style>
+
+</head>
+
+<body class="bg">
+
+
+    <h1 style=>BMI CALCULATOR</h1>
+
+
+   <div class="mainbox">
+   <div class="box1">
+    <div class="box1-a">
+      <label for="height" > Height</label>
+      <input type="number" id="height" placeholder="Enter Your Height In cm" name="height">
+    </div>
+    
+    <div class="box1-a">
+      <label for="weight" > Weight</label>
+      <input type="number" id="weight" placeholder="Enter Your Weight In Kg" name="weight">
+    </div>
+      <br>
+      <button onclick="calculate()">SUBMIT</button><br>
+    </div> 
+
+<div class="box2">
+    
+     <h1 id="print"></h1>
+  
+     <h1 id="suggestion"></h1>
+    </div>
+  </div>
+
+
+  <script>
+
+
+    function calculate() {
+      var h = document.getElementById("height").value;
+      var w = document.getElementById("weight").value;
+      var Heigh = h/100;
+      var check = w/(Heigh*Heigh);
+      check = check.toFixed(2);
+      document.getElementById("print").innerHTML = check;
+
+  if (check < 18) {
+    document.getElementById("suggestion").innerHTML="Underweight😔";
+                }
+ else if (check > 18 && check < 25){
+ document.getElementById("suggestion").innerHTML="Normal🙂";
+    } 
+  else if (check > 25 && check < 30){
+ document.getElementById("suggestion").innerHTML="Overweight😮";
+    }                
+else{
+ document.getElementById("suggestion").innerHTML="Obesity😱";
+    }
+    }
+
+  </script>
+
+
+</body>
+
+
+</html>
